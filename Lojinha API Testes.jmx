@@ -16,7 +16,7 @@
           <stringProp name="LoopController.loops">1</stringProp>
           <boolProp name="LoopController.continue_forever">false</boolProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">15</stringProp>
+        <stringProp name="ThreadGroup.num_threads">5</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
         <boolProp name="ThreadGroup.delayedStart">false</boolProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
@@ -25,7 +25,7 @@
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
       </ThreadGroup>
       <hashTree>
-        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Variáveis Definidas Pelo Usuário" enabled="true">
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Variáveis Definidas Pelo Usuário" enabled="false">
           <collectionProp name="Arguments.arguments">
             <elementProp name="usuarioPadrao" elementType="Argument">
               <stringProp name="Argument.name">usuarioPadrao</stringProp>
@@ -47,6 +47,23 @@
           <stringProp name="HTTPSampler.domain">165.227.93.41</stringProp>
         </ConfigTestElement>
         <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Configuração dos dados CSV" enabled="true">
+          <stringProp name="delimiter">;</stringProp>
+          <stringProp name="fileEncoding">utf-8</stringProp>
+          <stringProp name="filename">C:/Users/gabri/OneDrive/Documents/dados-teste-api.csv</stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="variableNames"></stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Temporizador Aleatório Gaussiano" enabled="true">
+          <stringProp name="ConstantTimer.delay">200</stringProp>
+          <stringProp name="RandomTimer.range">300</stringProp>
+        </GaussianRandomTimer>
+        <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Capturar Token" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -54,8 +71,8 @@
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-  &quot;usuarioLogin&quot;: &quot;${usuarioPadrao}&quot;,&#xd;
-  &quot;usuarioSenha&quot;: &quot;${senhaPadrao}&quot;&#xd;
+  &quot;usuarioLogin&quot;: &quot;${login}&quot;,&#xd;
+  &quot;usuarioSenha&quot;: &quot;${senha}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -99,16 +116,16 @@
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-  &quot;produtoNome&quot;: &quot;Play Station 4&quot;,&#xd;
-  &quot;produtoValor&quot;: 1800,&#xd;
+  &quot;produtoNome&quot;: &quot;${nomeProduto}&quot;,&#xd;
+  &quot;produtoValor&quot;: ${valorProduto},&#xd;
   &quot;produtoCores&quot;: [&#xd;
-    &quot;Preto&quot;&#xd;
+    &quot;${corProduto}&quot;&#xd;
   ],&#xd;
   &quot;produtoUrlMock&quot;: &quot;string&quot;,&#xd;
   &quot;componentes&quot;: [&#xd;
     {&#xd;
-      &quot;componenteNome&quot;: &quot;Controle&quot;,&#xd;
-      &quot;componenteQuantidade&quot;: 1&#xd;
+      &quot;componenteNome&quot;: &quot;${componenteNome}&quot;,&#xd;
+      &quot;componenteQuantidade&quot;: ${componenteQuantidade}&#xd;
     }&#xd;
   ]&#xd;
 }</stringProp>
